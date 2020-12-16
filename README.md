@@ -1,0 +1,2 @@
+# OOSE
+Project in django
