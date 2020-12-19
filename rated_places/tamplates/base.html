@@ -1,0 +1,48 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Discover the most reviewed places in your city | Top-Rated.Online</title>
+    <meta property="og:title" content="Discover the most reviewed places in your city">
+    <meta name="agd-partner-manual-verification">
+    <meta name="yandex-verification" content="11f9fd1400e9d876">
+    <meta name="google-site-verification" content="gbrb0fNRefIGNweRU2-yilzDS1uGHEnXP1FQyPq0d3I">
+    <style type="text/css">
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    main p {
+        margin: 0;
+    }
+    </style>
+    <link href="../static/css/app.css" rel='stylesheet'>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <a href="/" class="navbar-brand" style="position: relative; font-size: 24px;">
+                <b style="font-weight: 200;">Rated</b> Places
+            </a>
+            <h1>Discover the most reviewed places in your city</h1>
+            <p>Restaurants, Tourist Attractions, Hotels, Bars &amp; Pubs based on ratings of Google Maps</p>
+            <div>
+                {% if request.path == "/" %}
+                    <form action="category">
+                        <input type="Search" id="name" name = "city" autocomplete="off" placeholder="Select your city">
+                        <button type="submit" class="btn btn-lg btn-primary ml-2 my-sm-0">Go</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% block content%}
+
+    {% endblock %}
+</body>
+
+</html>
