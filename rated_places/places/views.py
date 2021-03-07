@@ -3,11 +3,16 @@ from django.shortcuts import render
 
 import requests
 
+from key import getkey
+
+
 
 def index(request):
+    
     return render(request,'index.html') 
 
 def category(request):
+    print(getkey())
     city_name = request.GET["city"]
     category = {'Bars' : "Bars.PNG","Museuem" : "museuem.png","Hospitals" : "hospitals.PNG","Gym" : "gym.png", "Hotels" : "hotels.png","Parks" : "parks.png"}
 
