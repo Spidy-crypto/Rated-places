@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+
 <main class="container">
     <div class="row">
         <div class="col-md-9">
-            <h2 class="title" style="margin: 15px;"> {{name}}
-            </h2>
             <div class="row" style="margin-bottom: 15px;">
-                <div class="col-md-12"><a href="/cities/Surat/all/top-rated">
+                <div class="col-md-12">
                         <div class="card" style="margin: 15px;">
                             <div class="card-body">
                                 <p class="card-text"></p>
@@ -15,18 +15,24 @@
                                 <p></p>
                             </div>
                         </div>
-                    </a>
                 </div>
-                <div class="col-md-6"><a href="/cities/Surat/Bars+and+Pubs/top-rated">
-                        <div class="card" style="margin: 15px;"><img src="/images/bars-and-pubs.jpg" alt="Bars and Pubs in Surat" class="card-img-top">
+                
+                
+                {% for key, values in category.items %}
+                    <div class="col-md-6"><a href="/places?name={{name}}&category={{key}}">
+                        <div class="card" style="margin: 15px;"><img src="../static/images/{{values}}" alt="Bars and Pubs in Surat" class="card-img-top">
                             <div class="card-body">
                                 <p class="card-text"></p>
-                                <h4>Bars and Pubs in {{name}}</h4>
+                                <h4>{{key}} in {{name}}</h4>
                                 <p></p>
                             </div>
                         </div>
                     </a>
                 </div>  
+                {% endfor %}
+                    
+
+                
             </div>
         </div>
         <div class="col-md-3">

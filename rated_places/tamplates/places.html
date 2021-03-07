@@ -1,19 +1,19 @@
-
+{% extends 'base.html' %}
 {% block content %}
 <main class="container">
     <div class="row">
         <div class="col-md-3">
             <h3 class="title">Filter list by</h3> 
-            <a href="/cities/Surat/Bars+and+Pubs/top-rated" class="btn btn-block btn-primary">Sort by <b style="font-weight: 600;">top rated </b>
+            <a href="#" class="btn btn-block btn-primary">Sort by <b style="font-weight: 600;">top rated </b>
                 <div class="fiter-icon">🏆</div>
             </a> 
-            <a href="/cities/Surat/Bars+and+Pubs" class="btn btn-block btn-outline-primary">Sort by <b style="font-weight: 600;">most reviewed <span></span></b>
+            <a href="#" class="btn btn-block btn-outline-primary">Sort by <b style="font-weight: 600;">most reviewed <span></span></b>
                 <div class="fiter-icon">🤩</div>
             </a>
             <hr> 
-            <a href="/cities/Surat/Bars+and+Pubs/hidden-gems" class="btn btn-block btn-outline-info">view <b style="font-weight: 600;">hidden gems </b>
+            <a href="#" class="btn btn-block btn-outline-info">view <b style="font-weight: 600;">hidden gems </b>
                 <div class="fiter-icon">💎</div>
-            </a> <a href="/cities/Surat/Bars+and+Pubs/worst-rated" class="btn btn-block btn-outline-danger">view <b style="font-weight: 600;">worst rated </b>
+            </a> <a href="#" class="btn btn-block btn-outline-danger">view <b style="font-weight: 600;">worst rated </b>
                 <div class="fiter-icon">🤬</div>
             </a>
             <hr>
@@ -21,51 +21,35 @@
                 Categories
             </h3>
             <ul class="list" style="padding-left: 5px;">
-                <li><a href="/cities/Surat/all/top-rated"><b>View All</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Bars+and+Pubs/top-rated" style="color: tomato;"><b>Bars and Pubs</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Beaches/top-rated"><b>Beaches</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Coffee+Shops/top-rated"><b>Coffee Shops</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Fitness+Clubs+%26+Gyms/top-rated"><b>Fitness Clubs &amp; Gyms</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Hospitals+%26+Clinics/top-rated"><b>Hospitals &amp; Clinics</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Hostels/top-rated"><b>Hostels</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Hotels/top-rated"><b>Hotels</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Lakes/top-rated"><b>Lakes</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Museums/top-rated"><b>Museums</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Night+Clubs/top-rated"><b>Night Clubs</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Parks/top-rated"><b>Parks</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Restaurants/top-rated"><b>Restaurants</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Shopping+Centers/top-rated"><b>Shopping Centers</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Tourist+Attractions/top-rated"><b>Tourist Attractions</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Vegan+Restaurants/top-rated"><b>Vegan Restaurants</b> in Surat</a></li>
-                <li><a href="/cities/Surat/Zoos+%26+Aquariums/top-rated"><b>Zoos &amp; Aquariums</b> in Surat</a></li>
+                <li><b>View All</b> in {{name}}</li>
+                
+                {% for c in categories %}
+                <li><a href="/places?name={{name}}&category={{c}}"><b>{{c}}</b> in {{name}}</a></li>
+                {% endfor %}
+                    
+                
             </ul>
-            <h3 class="title">
-                Cities nearby Surat
-            </h3>
-            <ul class="list" style="padding-left: 5px;">
-                <li><a href="/cities/Amroli">Amroli, India <span style="color: rgb(158, 158, 158);">(~5km)</span></a></li>
-                <li><a href="/cities/K%C4%81thor">Kāthor, India <span style="color: rgb(158, 158, 158);">(~14km)</span></a></li>
-                <li><a href="/cities/B%C4%81rdoli">Bārdoli, India <span style="color: rgb(158, 158, 158);">(~29km)</span></a></li>
-                <li><a href="/cities/Kosamba">Kosamba, India <span style="color: rgb(158, 158, 158);">(~32km)</span></a></li>
-                <li><a href="/cities/Kadod">Kadod, India <span style="color: rgb(158, 158, 158);">(~39km)</span></a></li>
-                <li><a href="/cities/Gandevi">Gandevi, India <span style="color: rgb(158, 158, 158);">(~47km)</span></a></li>
-                <li><a href="/cities/Bilimora">Bilimora, India <span style="color: rgb(158, 158, 158);">(~50km)</span></a></li>
-                <li><a href="/cities/Ankleshwar">Ankleshwar, India <span style="color: rgb(158, 158, 158);">(~51km)</span></a></li>
-                <li><a href="/cities/Chikhli">Chikhli, India <span style="color: rgb(158, 158, 158);">(~54km)</span></a></li>
-                <li><a href="/cities/Vy%C4%81ra">Vyāra, India <span style="color: rgb(158, 158, 158);">(~58km)</span></a></li>
-            </ul> <a href="/cities/India" class="title" style="font-size: 16px; color: rgb(108, 178, 235);">
-                View all places in <b>India</b></a> <br> <br> <ins full-width-responsive="true" data-ad-client="ca-pub-3952276294006861" data-ad-slot="1878594662" data-ad-format="auto" class="adsbygoogle" style="display: block;"></ins> <br> <ins full-width-responsive="true" data-ad-format="auto" class="adsbygoogle" data-ad-client="ca-pub-3952276294006861" data-ad-slot="9066379844" data-full-width-responsive="true" style="display: block;"></ins>
+              <br> <br> <ins full-width-responsive="true" data-ad-client="ca-pub-3952276294006861" data-ad-slot="1878594662" data-ad-format="auto" class="adsbygoogle" style="display: block;"></ins> <br> <ins full-width-responsive="true" data-ad-format="auto" class="adsbygoogle" data-ad-client="ca-pub-3952276294006861" data-ad-slot="9066379844" data-full-width-responsive="true" style="display: block;"></ins>
         </div>
         <div class="col-md-9"><br> <ins full-width-responsive="true" data-ad-format="auto" class="adsbygoogle" data-ad-style="display:inline-block;width:970px;height:250px" data-ad-client="ca-pub-3952276294006861" data-ad-slot="6356456021" style="display: block;"></ins> <br>
             <ol class="list" style="margin-bottom: 0px;">
-                <li style="font-size: 18px;"><b style="font-weight: 600;"><a href="/cities/Surat/place/p/1698526/Welcome+Soda+Bar">Welcome Soda Bar</a></b> &nbsp; - &nbsp; <a rel="nofollow noopener noreferrer" href="https://www.google.com/maps/search/Welcome+Soda+Bar+Surat+India?hl=en&amp;source=opensearch"><span class="badge badge-over45">4.60</span></a> (<i>40 reviews</i>) <i class="d-none d-md-block" style="color: rgb(173, 181, 189); float: right;">Cash only</i>
-                    <div style="clear: both;"></div>
-                </li>
+                
+                {% for key, value in places.items %}
+                    <li style="font-size: 18px;"><b style="font-weight: 600;">
+                        <a href="/cities/Surat/place/p/1698526/Welcome+Soda+Bar">{{key}}</a>
+                    </b> &nbsp; - &nbsp;
+                    <a rel="nofollow noopener noreferrer" href="https://www.google.com/maps/search/Welcome+Soda+Bar+Surat+India?hl=en&amp;source=opensearch">
+                        <span class="badge badge-over45">{{value.0}}</span></a> (<i>{{value.1}} reviews</i>) <i class="d-none d-md-block" style="color: rgb(173, 181, 189); float: right;">Cash only</i>
+                        <div style="clear: both;"></div>
+                    </li>
+                {% endfor %}
+                    
+                
             </ol> 
             <small style="color: rgb(158, 158, 158);">Tip: Click on the <span class="badge badge-success">rating</span> to open it on Google Maps</small> <br> <br>
             <h2>What's a Top rated?</h2>
             <p>The list is sorted by the average review score for places with more than 30 reviews
-                in <b>Bars and Pubs</b> category
+                in <b>{{category}} </b> category
                 .
             </p>
         </div>
