@@ -36,9 +36,8 @@
                 
                 {% for key, value in places.items %}
                     <li style="font-size: 18px;"><b style="font-weight: 600;">
-                        <a href="/cities/Surat/place/p/1698526/Welcome+Soda+Bar">{{key}}</a>
+                        <a href="/place?name={{name}}&placeid={{value.2}}">{{key}}</a>
                     </b> &nbsp; - &nbsp;
-                    <a rel="nofollow noopener noreferrer" href="https://www.google.com/maps/search/Welcome+Soda+Bar+Surat+India?hl=en&amp;source=opensearch">
                         <span class="badge badge-over45">{{value.0}}</span></a> (<i>{{value.1}} reviews</i>) <i class="d-none d-md-block" style="color: rgb(173, 181, 189); float: right;">Cash only</i>
                         <div style="clear: both;"></div>
                     </li>
