@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="container" style="margin-top: 40px;">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 106px;">Place Name</th>
+                        <th style="width: 106px;">City</th>
+                        <th style="width: 106px;">Place_Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for place in  places%}
+                    <tr>
+                        <td><a href="/place?name={{place.city_name}}&placeid={{place.place_id}}" >{{place.place_name}}</a></td>
+                        <td>{{place.city_name}}</td>
+                        <td>{{place.place_id}}</td>
+                    </tr>
+                    {% endfor %}
+                        
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+{% endblock content %}
