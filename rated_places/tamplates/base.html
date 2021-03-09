@@ -25,6 +25,14 @@
 <body>
     <div class="jumbotron">
         <div class="container">
+            
+            {% if user.is_authenticated %}
+                <a href="/auth/logout">Logout</a><br>
+            {% else %}
+                <a href="/auth/login">Login</a>&nbsp;
+                <a href="/auth/register">Register</a><br>
+            {% endif %}
+                
             <a href="/" class="navbar-brand" style="position: relative; font-size: 24px;">
                 <b style="font-weight: 200;">Rated</b> Places
             </a>
