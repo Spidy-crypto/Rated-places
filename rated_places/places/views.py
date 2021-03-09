@@ -62,13 +62,16 @@ def place_detail(request):
 
 
     categories = {'Bars' : "bar","Museuem" : "museum","Hospitals" : "hospital","Gym" : "gym", "Hotels" : "restaurant","Parks" : "park","Jwellery" : "jewelry_store" ,"Zoo" : "zoo"}
-
+    filepath = os.path.join(django_settings.STATIC_ROOT + '/static/images', 'place.jpg')
     if 'photos' in r['result']:
         photo_ref = r['result']['photos'][0]['photo_reference']
         r2  = requests.get('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+photo_ref +'&key=' + getkey())
-        file=open(os.path.join(django_settings.STATIC_ROOT + '/static/images', 'place.jpg'), 'wb')
+        file=open(filepath, 'wb')
         for i in r2:
             if i:
                 file.write(i)        
         file.close()
+    elif os.path.exists(filepath):
+        os.remove(filepath)
+
     return render(request,'place_detail.html',{"url" : url,"name" : name,"addr" : addr,"rating" : rating,"city_name" : city_name,"category" : categories,"reviews" : reviews_lst})
