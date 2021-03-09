@@ -1,6 +1,9 @@
 from django.shortcuts import render
-import requests,os
+import requests
 from key import getkey
+import shutil, os
+from pathlib import Path
+from django.conf import settings as django_settings
 
 def index(request):
     return render(request,'index.html') 
@@ -8,7 +11,6 @@ def index(request):
 def category(request):
     city_name = request.GET["city"]
     category = {'Bars' : "Bars.PNG","Museuem" : "museum.png","Hospitals" : "hospitals.PNG","Gym" : "gym.png", "Hotels" : "hotels.png","Parks" : "parks.png","Jwellery" : "jwells.png","Zoo" : "zoo.png"}
-
     return render(request,"category.html",{"name" : city_name,"category" : category})
 
 def places(request):
@@ -34,6 +36,7 @@ def places(request):
     return render(request,"places.html",{"name" : name,"categories" : categories,"category" : category,"places" : d})
 
 def place_detail(request):
+
     city_name = request.GET['name']
     place_id = request.GET['placeid']
     r = requests.get('https://maps.googleapis.com/maps/api/place/details/json?placeid='+ place_id + '&key=' + getkey())
@@ -41,6 +44,7 @@ def place_detail(request):
     addr = r['result']['formatted_address']
     name = r['result']['name']
     url = r['result']['url']
+
     if 'rating' in r['result']:
         rating = [r['result']['rating'],r['result']['user_ratings_total']]
     else:
@@ -52,6 +56,7 @@ def place_detail(request):
         reviews = []
 
     reviews_lst = []
+
     for i in reviews:
         reviews_lst.append([i['author_name'],i['rating'],i['relative_time_description'],i['text']])
 
@@ -61,11 +66,9 @@ def place_detail(request):
     if 'photos' in r['result']:
         photo_ref = r['result']['photos'][0]['photo_reference']
         r2  = requests.get('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+photo_ref +'&key=' + getkey())
-        f = open("place.jpg","wb")
+        file=open(os.path.join(django_settings.STATIC_ROOT + '/static/images', 'place.jpg'), 'wb')
         for i in r2:
             if i:
-                f.write(i)
-        f.close()
-        os.rename("../place.jpg", "../static/images/place.jpg")
-    
+                file.write(i)        
+        file.close()
     return render(request,'place_detail.html',{"url" : url,"name" : name,"addr" : addr,"rating" : rating,"city_name" : city_name,"category" : categories,"reviews" : reviews_lst})
