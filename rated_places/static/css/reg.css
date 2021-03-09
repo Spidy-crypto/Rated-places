@@ -1,0 +1,70 @@
+.reg {
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 430px;
+    height: 590px;
+    padding: 20px 40px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 1px, 0px, 5px, lightgray;
+}
+
+h2 {
+    text-align: center;
+    color: black;
+}
+
+.reg label {
+    padding: 0;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.reg input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.reg input[type="text"],
+.reg input[type="email"],
+.reg input[type="password"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    font size: 16px;
+    border-bottom: 1px solid black;
+    color: black;
+    background: transparent;
+}
+
+.reg input[type="submit"] {
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    height: 40px;
+    font-size: 16px;
+    background: rgb(255, 38, 126);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.reg a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+.reg a {
+    margin-left: 30px;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
