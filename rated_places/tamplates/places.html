@@ -34,11 +34,11 @@
         <div class="col-md-9"><br> <ins full-width-responsive="true" data-ad-format="auto" class="adsbygoogle" data-ad-style="display:inline-block;width:970px;height:250px" data-ad-client="ca-pub-3952276294006861" data-ad-slot="6356456021" style="display: block;"></ins> <br>
             <ol class="list" style="margin-bottom: 0px;">
                 
-                {% for key, value in places.items %}
+                {% for key in places %}
                     <li style="font-size: 18px;"><b style="font-weight: 600;">
-                        <a href="/place?name={{name}}&placeid={{value.2}}">{{key}}</a>
+                        <a href="/place?name={{name}}&placeid={{key.3}}">{{key.0}}</a>
                     </b> &nbsp; - &nbsp;
-                        <span class="badge badge-over45">{{value.0}}</span></a> (<i>{{value.1}} reviews</i>) <i class="d-none d-md-block" style="color: rgb(173, 181, 189); float: right;">Cash only</i>
+                        <span class="badge badge-over45">{{key.1}}</span></a> (<i>{{key.2}} reviews</i>) <i class="d-none d-md-block" style="color: rgb(173, 181, 189); float: right;">Cash only</i>
                         <div style="clear: both;"></div>
                     </li>
                 {% endfor %}

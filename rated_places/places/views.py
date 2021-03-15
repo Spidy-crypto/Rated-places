@@ -25,16 +25,21 @@ def places(request):
     lang =  req['results'][0]['geometry']['location']['lng']
 
     r1 = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+ str(lat) + ',' + str(lang) + '&radius=150000&type='+ categories[category] + '&key='+getkey())
-
     r1 = r1.json()
-    d = {}
-    for i in r1['results']:
-        if 'rating' in i:
-            d[i['name']] = [i['rating'],i['user_ratings_total'],i['place_id']]
-        else:
-            d[i['name']] = ["",0,i['place_id']]
+    lst = []
 
-    return render(request,"places.html",{"name" : name,"categories" : categories,"category" : category,"places" : d})
+    for i in r1['results']:
+            if 'rating' in i:
+                lst.append([i['name'],i['rating'],i['user_ratings_total'],i['place_id']])
+            else:
+                lst.append([i['name'],"",0,i['place_id']]) 
+
+    for i in range(len(lst)):
+        for j in range(i+1,len(lst)):
+            if int(lst[i][2]) < int(lst[j][2]):
+                lst[i],lst[j] = lst[j],lst[i]
+
+    return render(request,"places.html",{"name" : name,"categories" : categories,"category" : category,"places" : lst})
 
 def place_detail(request):
 

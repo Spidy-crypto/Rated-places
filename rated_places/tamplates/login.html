@@ -17,10 +17,7 @@
         <h2>Log In Here</h2>
         <form action="/auth/login" method="post">
             {% csrf_token %}
-            <label for="username">Username :- </label>
-            <input type="text" name="username" id="username" placeholder="Enter email or number" autofocus autocomplete required><br>
-            <label for="password">Password :- </label><br>
-            <input type="password" id="password" name="password" placeholder="Enter Your password" required><br>
+            {{form}}
             <input type="submit" name="submit1" value="LogIn">
         </form>
         <footer>

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 import sweetify
 from django.contrib.auth.models import User,auth
+from .forms import *
 
 def login(request):
     if request.method == "POST":
@@ -10,8 +11,8 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             return redirect("/")
-
-    return render(request,"login.html")
+    form = Login()
+    return render(request,"login.html",{'form' : form})
 
 def registration(request):
 
@@ -26,8 +27,8 @@ def registration(request):
         user.save()
         
         return redirect("/auth/login")
-    else:
-        return render(request,"registration.html")
+    
+    return render(request,"registration.html",{'form' : Register()})
 
 def logout(request):
     auth.logout(request)
