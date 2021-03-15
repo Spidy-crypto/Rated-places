@@ -134,3 +134,5 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR,'')
 
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
+
+LOGIN_URL = '/auth/login'

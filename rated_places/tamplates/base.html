@@ -28,6 +28,7 @@
         <div class="container">
             
             {% if user.is_authenticated %}
+                <a href="/seefavouriteplace" style="position: absolute; right : 180px;">Favourite Place</a>"
                 <a href="/auth/logout" style="position: absolute; right : 100px;">Logout</a><br>
             {% else %}
                 <a href="/auth/login" style="position: absolute; right : 180px;">Login</a>&nbsp;
@@ -49,8 +50,6 @@
             </div>
         </div>
     </div>
-    {% load sweetify %}
-    {% sweetify %}
     {% block content%}
 
     {% endblock %}

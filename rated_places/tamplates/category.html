@@ -20,11 +20,11 @@
                 
                 {% for key, values in category.items %}
                     <div class="col-md-6"><a href="/places?name={{name}}&category={{key}}">
-                        <div class="card" style="margin: 15px;"><img src="../static/images/{{values}}" alt="Bars and Pubs in Surat" class="card-img-top">
+                        <div class="card" style="margin: 15px;">
+                            <img src="../static/images/{{values}}" class="card-img-top" style="height: 240px;">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <h4>{{key}} in {{name}}</h4>
-                                <p></p>
                             </div>
                         </div>
                     </a>
@@ -34,24 +34,6 @@
 
                 
             </div>
-        </div>
-        <div class="col-md-3">
-            <h3 class="title">
-                Cities nearby Surat
-            </h3>
-            <ul class="list" style="padding-left: 5px;">
-                <li><a href="/cities/Amroli">Amroli, India <span style="color: rgb(158, 158, 158);">(~5km)</span></a></li>
-                <li><a href="/cities/K%C4%81thor">Kāthor, India <span style="color: rgb(158, 158, 158);">(~14km)</span></a></li>
-                <li><a href="/cities/B%C4%81rdoli">Bārdoli, India <span style="color: rgb(158, 158, 158);">(~29km)</span></a></li>
-                <li><a href="/cities/Kosamba">Kosamba, India <span style="color: rgb(158, 158, 158);">(~32km)</span></a></li>
-                <li><a href="/cities/Kadod">Kadod, India <span style="color: rgb(158, 158, 158);">(~39km)</span></a></li>
-                <li><a href="/cities/Gandevi">Gandevi, India <span style="color: rgb(158, 158, 158);">(~47km)</span></a></li>
-                <li><a href="/cities/Bilimora">Bilimora, India <span style="color: rgb(158, 158, 158);">(~50km)</span></a></li>
-                <li><a href="/cities/Ankleshwar">Ankleshwar, India <span style="color: rgb(158, 158, 158);">(~51km)</span></a></li>
-                <li><a href="/cities/Chikhli">Chikhli, India <span style="color: rgb(158, 158, 158);">(~54km)</span></a></li>
-                <li><a href="/cities/Vy%C4%81ra">Vyāra, India <span style="color: rgb(158, 158, 158);">(~58km)</span></a></li>
-            </ul> <a href="/cities/India" class="title" style="font-size: 16px; color: rgb(108, 178, 235);">
-                View all places in <b>India</b></a> <br> <br> <ins full-width-responsive="true" data-ad-client="ca-pub-3952276294006861" data-ad-slot="1878594662" data-ad-format="auto" class="adsbygoogle" style="display: block;"></ins> <ins full-width-responsive="true" data-ad-client="ca-pub-3952276294006861" data-ad-slot="1878594662" data-ad-format="auto" class="adsbygoogle" style="display: block;"></ins>
         </div>
     </div>
  </main>

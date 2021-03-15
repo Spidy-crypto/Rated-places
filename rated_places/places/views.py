@@ -5,6 +5,7 @@ import shutil, os
 from pathlib import Path
 from django.conf import settings as django_settings
 from places.models import addToFav
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request,'index.html') 
@@ -82,28 +83,31 @@ def place_detail(request):
 
     return render(request,'place_detail.html',{"url" : url,"name" : name,"addr" : addr,"rating" : rating,"city_name" : city_name,"category" : categories,"reviews" : reviews_lst,"place_id" : place_id})
 
+
+@login_required
 def addtoFav(request):
     name = request.user.username
     place_id = request.GET['placeid']
     city = request.GET['city']
     place_name = request.GET['place_name']
 
-    if request.user.is_authenticated:
-        exist = addToFav.objects.filter(name=name,place_id=place_id)   
-        add = addToFav()
-        add.name = name
-        add.place_id = place_id
-        add.place_name = place_name
-        add.city_name = city
-        if not exist:
-            add.save()
-        return redirect('/place?name=' + city + '&placeid='+ place_id)
-    else:
-        return redirect('/auth/login')
+    exist = addToFav.objects.filter(name=name,place_id=place_id)   
+    add = addToFav()
+    add.name = name
+    add.place_id = place_id
+    add.place_name = place_name
+    add.city_name = city
+    if not exist:
+        add.save()
+    return redirect('/seefavouriteplace')
+
     
+@login_required(login_url='/auth/login')
 def see(request):
-    if request.user.is_authenticated:
-        fav_places = addToFav.objects.filter(name=request.user.username)
-        return render(request, "favouriteplaces.html" ,{"places" : fav_places})
-    else:
-        return redirect('/auth/login')
+    name = request.user.username
+    fav_places = addToFav.objects.filter(name=request.user.username)
+    return render(request, "favouriteplaces.html" ,{"places" : fav_places,"name" : name})
+
+def remove(request,name,place_id):  
+    addToFav.objects.filter(name=name,place_id=place_id).delete()
+    return redirect('/seefavouriteplace')
