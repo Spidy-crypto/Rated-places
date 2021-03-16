@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Registration</title>
     <link rel="stylesheet" type="text/css" href="../static/css/reg.css">
     <style type="text/css">
-    body {
-        background-image: url("../static/images/bg.jpg");
-        background-size: cover;
-    }
+        body {
+            background-image: url("../static/images/bg.jpg");
+            background-size: cover;
+        }
     </style>
 </head>
 
-<body>
+<body>    
     <div class="reg">
         <h2>Create New Account</h2>
         <form action="register" id="regform" method="post">
@@ -24,7 +23,10 @@
             <a href="/auth/login">Already have an account ?</a>
         </footer>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
+    {% load sweetify %}
+    {% sweetify %}
 </body>
 
 </html>

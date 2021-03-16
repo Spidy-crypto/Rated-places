@@ -10,3 +10,4 @@ class Register(forms.Form):
     email = forms.CharField(max_length=200,widget=forms.TextInput(attrs={'id' : 'email','placeholder' : 'Enter Email'}))
     password = forms.CharField(max_length=200,widget=forms.PasswordInput(attrs={'id' : 'password','placeholder' : 'Enter Password'}))
     repassword = forms.CharField(max_length=200,widget=forms.PasswordInput(attrs={'id' : 'repassword','placeholder' : 'Confirm Password'}),label="Confirm Password")
+    hidden = forms.CharField(widget = forms.HiddenInput(attrs={'id' : 'hidden'}))
