@@ -11,6 +11,8 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             return redirect("/")
+        else:
+            sweetify.error(request,"Username or password incorrect",button = "Ok",persistent = True)
     form = Login()
     return render(request,"login.html",{'form' : form})
 

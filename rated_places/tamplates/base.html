@@ -10,6 +10,7 @@
     <meta name="yandex-verification" content="11f9fd1400e9d876">
     <meta name="google-site-verification" content="gbrb0fNRefIGNweRU2-yilzDS1uGHEnXP1FQyPq0d3I">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
     <style type="text/css">
     body {
         margin: 0px;
@@ -20,15 +21,14 @@
         margin: 0;
     }
     </style>
-    <link href="../static/css/app.css" rel='stylesheet'>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 
 <body>
-    <div class="jumbotron">
+    <div class="jumbotron" style="background: rgb(168,171,0);">
         <div class="container">
-            
             {% if user.is_authenticated %}
-                <a href="/seefavouriteplace" style="position: absolute; right : 180px;">Favourite Place</a>"
+                <a href="/seefavouriteplace" style="position: absolute; right : 180px;">Favourite Place</a>
                 <a href="/auth/logout" style="position: absolute; right : 100px;">Logout</a><br>
             {% else %}
                 <a href="/auth/login" style="position: absolute; right : 180px;">Login</a>&nbsp;
@@ -43,8 +43,8 @@
             <div>
                 {% if request.path == "/" %}
                     <form action="category">
-                        <input type="Search" id="name" name = "city" autocomplete="off" placeholder="Select your city">
-                        <button type="submit" class="btn btn-lg btn-primary ml-2 my-sm-0">Go</button>
+                        <input type="search" name="city" id="city" class="search" placeholder="Enter City name">
+                        <button type="submit" class="btn">Go</button>
                     </form>
                 {% endif %}
             </div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    
+    {% block link %}
+        
+    {% endblock link %}
+        
+    <link rel="stylesheet" type="text/css" href="../static/css/reg.css">
+    <style type="text/css">
+        body {
+            background-image: url("../static/images/bg.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>    
+    
+    {% block content %}
+    
+    {% endblock content %}
+        
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    {% load sweetify %}
+    {% sweetify %}
+</body>
+
+</html>

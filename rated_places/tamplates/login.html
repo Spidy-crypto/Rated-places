@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html>
+{% extends 'authbase.html' %}
 
-<head>
-    <title>LogIn</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
-    <style type="text/css">
-    body {
-        background-image: url("../static/images/bg.jpg");
-        background-size: cover;
-    }
-    </style>
-</head>
+{% block title %}
+LogIn
+{% endblock title %}
 
-<body>
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="../static/css/login.css">
+{% endblock link %}
+    
+    
+
+{% block content %}
     <div class="login" data-aos="fade-up" data-aos-once="true">
         <h2>Log In Here</h2>
         <form action="/auth/login" method="post">
@@ -24,7 +23,5 @@
             <a href="/auth/register">Register new account</a><br>
             <a href="#">Forget Password</a>
         </footer>
-        <div>
-</body>
-
-</html>
+    </div>
+{% endblock content %}

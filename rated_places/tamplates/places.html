@@ -3,19 +3,6 @@
 <main class="container">
     <div class="row">
         <div class="col-md-3">
-            <h3 class="title">Filter list by</h3> 
-            <a href="#" class="btn btn-block btn-primary">Sort by <b style="font-weight: 600;">top rated </b>
-                <div class="fiter-icon">🏆</div>
-            </a> 
-            <a href="#" class="btn btn-block btn-outline-primary">Sort by <b style="font-weight: 600;">most reviewed <span></span></b>
-                <div class="fiter-icon">🤩</div>
-            </a>
-            <hr> 
-            <a href="#" class="btn btn-block btn-outline-info">view <b style="font-weight: 600;">hidden gems </b>
-                <div class="fiter-icon">💎</div>
-            </a> <a href="#" class="btn btn-block btn-outline-danger">view <b style="font-weight: 600;">worst rated </b>
-                <div class="fiter-icon">🤬</div>
-            </a>
             <hr>
             <h3 class="title">
                 Categories
@@ -38,7 +25,7 @@
                     <li style="font-size: 18px;"><b style="font-weight: 600;">
                         <a href="/place?name={{name}}&placeid={{key.3}}">{{key.0}}</a>
                     </b> &nbsp; - &nbsp;
-                        <span class="badge badge-over45">{{key.1}}</span></a> (<i>{{key.2}} reviews</i>) <i class="d-none d-md-block" style="color: rgb(173, 181, 189); float: right;">Cash only</i>
+                        <span class="badge badge-success">{{key.1}}</span></a> (<i>{{key.2}} reviews</i>) <i class="d-none d-md-block" style="color: rgb(173, 181, 189); float: right;">Cash only</i>
                         <div style="clear: both;"></div>
                     </li>
                 {% endfor %}

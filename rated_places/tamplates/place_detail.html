@@ -11,7 +11,7 @@
             <h2 class="secondary-title">Address</h2>
             {{addr}}
             <br> <br> <br>
-            <h2 class="secondary-title">Rating on Google Maps</h2> <span class="badge badge-over45"
+            <h2 class="secondary-title">Rating on Google Maps</h2> <span class="badge badge-success"
                 style="padding: 0.2em; font-size: 2em;">{{rating.0}}</span> (<i style="font-size: 1.3em;">{{rating.1}}
                 reviews</i>)<br><br> <br>
             <h2 class="secondary-title">Working Hours</h2>
@@ -25,13 +25,13 @@
                 {% for review in reviews %}
                     <li class="media">
                         <div class="media-body">
-                            <h6 class="mt-0 mb-1"><span class="badge badge-over45"
+                            <h6 class="mt-0 mb-1"><span class="badge badge-success"
                                     style="margin-right: 15px; font-size: 1em;">{{review.1}}</span>{{review.0}} <small>{{review.2}}
                                     </small></h6>
                             {{review.3}}
                         </div>
-                        <hr>
                     </li>
+                    <hr>    
                 {% endfor %}
                     
                 
@@ -50,12 +50,9 @@
             <div style="clear: both;"></div> <br> <br>
         </div>
         
-        <div class="col-md-3"><b class="d-none d-sm-block"
-                style="font-weight: 600; display: block; margin-bottom: 15px;">
-                <a target="_blank"
-                    rel="nofollow noreferrer"
-                    href="{{url}}"
-                    class="btn btn-lg btn-block btn-success">Open on <b>Google Maps</b></a></b> 
+        <div class="col-md-3">
+            <b class="d-none d-sm-block" style="font-weight: 600; display: block; margin-bottom: 15px;">
+                <a target="_blank" rel="nofollow noreferrer" href="{{url}}" class="btn btn-lg btn-block btn-success">Open on <b>Google Maps</b></a></b> 
                     
                     {% if user.is_authenticated %}
                         <a rel="nofollow noreferrer" href="/fav?city={{city_name}}&placeid={{place_id}}&place_name={{name}}" class="btn btn-lg btn-block btn-success">Add to Favourite</a><br>
