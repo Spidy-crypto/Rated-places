@@ -1,2 +1,1 @@
-# OOSE
 Project in django
