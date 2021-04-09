@@ -28,9 +28,11 @@
     <div class="jumbotron" style="background: rgb(168,171,0);">
         <div class="container">
             {% if user.is_authenticated %}
+                <a href="/" style="position: absolute; right : 315px;">Home</a>
                 <a href="/seefavouriteplace" style="position: absolute; right : 180px;">Favourite Place</a>
                 <a href="/auth/logout" style="position: absolute; right : 100px;">Logout</a><br>
             {% else %}
+                <a href="/" style="position: absolute; right : 240px;">Home</a>
                 <a href="/auth/login" style="position: absolute; right : 180px;">Login</a>&nbsp;
                 <a href="/auth/register" style="position: absolute; right : 100px;">Register</a><br>
             {% endif %}
