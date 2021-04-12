@@ -18,3 +18,18 @@ def getkey():
     return "Here is your api key"
 ```
 
+### Change database credential in settings.py 
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'spidy',
+        'USER' : 'postgres',
+        'PASSWORD': '1234',
+        'HOST' : 'localhost'
+    }
+}
+
+```
+
