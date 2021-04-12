@@ -1,1 +1,1 @@
-Project in django
+#Django Project
