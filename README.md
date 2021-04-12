@@ -30,6 +30,4 @@ DATABASES = {
         'HOST' : 'localhost'
     }
 }
-
 ```
-
